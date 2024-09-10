@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signuppage</title>
+    <link rel="stylesheet" href="usersignup.css">
+</head>
+ <body>
+  
+  <div class="main">
+    <div class="main1">
+            <form action="Designer Signup"  id="signup-form">
+              <div class="details">    
+              <h1>DESIGNER SIGNUP</h1>
+            </br>
+                  <label>Name</label>
+                </br>
+                  <input id="name" type="name" placeholder="name">
+                </br>
+              </br>
+                  <label>Email</label>
+                </br>
+                  <input id="email" type="email" placeholder="email" >
+                </br>
+                  <span id="usermail" style="color:red"></span>
+                </br>
+              </br>
+                  <label>Password</label>
+            </br>
+                  <input id="password" type="password" placeholder="password" max-length="10" >
+                </br>
+                  <span  id = "message1" style="color:red"></span>
+                </br>
+              </br>
+              
+              <label>ConfirmPassword</label>
+            </br>
+                  <input id="Confirmpassword" type="password" placeholder="Confirmpassword" max-length="10" >
+          </br>
+                  <span  id = "message2" style="color:red"></span>
+                </br>
+              </br>
+                 
+              <label>MobileNumber</label>
+                </br>
+                  <input id="mobilenumber" type="mobilenumber" placeholder="mobilenumber">
+              </br>
+                  <span id="valid" max-length="10"  min-length="10" style="color:red"></span>
+                </br>
+              </br>
+                  <label>Addressline1</label>
+                </br>
+                  <input id="addressline1" type="addressline1" placeholder="addressline1">
+                </br>
+              </br>
+                  <label>Addressline2</label>
+                </br>
+                  <input id="addressline2" type="addressline2" placeholder="addressline2">
+                </br>
+              </br>
+                  <label>landmark</label>
+                </br>
+                  <input id="landmark" type="landmark" placeholder="landmark">
+                </br>
+              </br>
+                  <label>City</label>
+                </br>
+                  <input id="city" type="city" placeholder="city">
+                </br>
+              </br>
+                  <label>Country</label>
+                </br>
+                  <input id="country" type="country" placeholder="country">
+                </br>
+              </br>
+                  <label>Pincode</label>
+                </br>
+                  <input id="pincode" type="pincoce" placeholder="pincode">
+
+                  <!-- <span id="pin" style="color: red" max-length="7" ></span> -->
+                </br>
+              </br>
+                  <button  type='submit'  class="button">Sign up </button>
+              </br>
+            </br>
+                  <p class="policy"> <a href="#Top"> Terms and Conditions</a> and <a href="#Top">privacy-policy</a></p>
+              <p class="para">Already have an account? <a href="userlogin.html">Login Here</a></p>
+            </div> 
+            
+            </form>
+    </div>
+  </div>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const Confirmpassword = document.getElementById('Confirmpassword').value;
+          const mobilenumber = document.getElementById('mobilenumber').value;
+          const addressline1 = document.getElementById('addressline1').value;
+          const addressline2 = document.getElementById('addressline2').value;
+          const landmark = document.getElementById('landmark').value;
+          const city = document.getElementById('city').value;
+          const country = document.getElementById('country').value;
+          const pincode = document.getElementById('pincode').value;
+      
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', 'http://localhost:8080/designerSignup', '/designerSignup', true);
+          xhr.setRequestHeader('Content-Type','application/json');
+          
+          var pwd = document.getElementById("password").value;
+          var conpwd = document.getElementById("Confirmpassword").value;
+          var phno = document.getElementById("mobilenumber").value;
+          var mail =  document.getElementById("email").value;
+          var code = document.getElementById("pincode").value;
+          
+          // var validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+
+          
+         
+        if (/^\d{10}$/.test(phno))
+        {
+          document.getElementById("valid").innerText = ""
+        }
+        else {
+          document.getElementById("valid").innerText ="Invalid number; must be ten digits"
+         phno.focus()
+        return false
+         }
+         
+         if (mail === "" ) {
+          document.getElementById("usermail").innerText = "please enter valid email"
+          console.log(mail)
+          return false
+        }
+        if(pwd === "") {  
+         document.getElementById("message1").innerText = "Fill the password please!";  
+         return false;  
+          }  
+          if(pwd.length > 10) {  
+         document.getElementById("message1").innerText = "Password length must not exceed 10 characters";  
+         return false;  
+         } 
+         if(conpwd === "") {  
+         document.getElementById("message2").innerText = "Fill the confirmpassword please!";  
+         return false;  
+          }
+          if(conpwd!=pwd){
+        document.getElementById("message2").innerText = "password and confirmpassword should be same"
+        return false;
+        }
+        // else{
+        //   document.getElementById("message2").innerText = ""
+        // }
+  
+        
+         // if(mail.match([/^([a-z A-Z 0-9 _\.\-])+\@(([a-z A-Z 0-9\-])+\.)+([a-z A-z 0-9]{3,3})+$/])){
+        //   document.getElementById("usermail").innerText = ""
+
+        // }
+        // else{
+        //   document.getElementById("usermail").innerText = "please enter proper email address"
+        // }
+
+        // if(pin>7){
+        //   document.getElementById("pin").innerText = "pincode must be 7 digits"
+        // }
+
+
+          xhr.onload = function() {
+        if (xhr.status === 200) {
+          const response = JSON.stringify(xhr.responseText);
+          console.log(response);
+         
+        
+          // Access the expected JSON data from the response
+          var message = response.message;
+          // Handle the login success and display the message
+
+          console.log('Signup successfull');
+          sessionStorage.setItem("data", JSON.stringify(email));
+          sessionStorage.setItem("data")
+          window.location.href = 'userwelcome.html';
+
+
+
+        } else {
+          
+          // Handle other response statuses or error
+          alert("signup failed")
+          console.log("Signup failed");
+        }
+      };
+      
+      xhr.onerror = function () {
+            // Network error
+            console.error('Network error');
+          };
+      
+          xhr.send(JSON.stringify({name, email, password, Confirmpassword, mobilenumber, landmark, addressline1,addressline2, city, country, pincode}));
+        });
+      
+        
+      </script>
+ </body>
+</html>

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ .body{ 
+    
+    overflow-x: hidden;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+} 
+body {
+  background-image: url(http://www.hdwallpapers.in/walls/star_trail-wide.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attach: fixed;
+  animation: animate-bg 50s infinite linear;
+}
+
+@keyframes animate-bg {
+  from { background-size: 100%; background-position: 0% 0%; }
+  50% { background-size: 120%; background-position: 0% 20% }
+  to { background-size: 100%; background-position: 0% 0%; }
+}
+
+.welcome{
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: chartreuse;
+    text-align: center;
+}
+.pic{
+    width: 47px;
+    height: 50px;
+}
+.profile{
+    width: 47px;
+    height: 50px;
+    margin-left: 114px;
+    margin-top: 19px;
+}
+.icon{
+    width: 50px;
+    height: 60px;
+    margin-left: 80px;
+}
+
+.button{
+    margin-top: 21px;
+    margin-left: 118px;
+}
+@media screen and (max-width: 300px){
+.button {
+    background-color: green;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 42px;
+    margin-left: 60px;
+  }
+}
+.button:hover {
+    background-color: blue;
+    color: white;
+    cursor: pointer}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    background-color: #333;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
+  span{
+    margin-left: 200px;
+  }

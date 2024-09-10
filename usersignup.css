@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+ 
+    
+    body{
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        /* overflow-x:hidden; */
+    }
+    @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body  {
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
+
+
+.center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(75, 75, 250, 0.3);
+  border-radius: 3px;
+}
+.center h1{
+  text-align:center;
+  color:white;
+  font-family: 'Source Code Pro', monospace;
+  text-transform:uppercase;
+}
+    /* .container{
+        max-width: 440px;
+        padding: 0 20px;
+        margin: 170px auto;
+    } */
+    
+  .main1{
+    /* border: 2px solid black; */
+    width: 400px;
+    height: 731px;
+    margin-left: 36rem;
+    margin-top: 4rem;
+    background-image: -moz-radial-gradient();
+    font-family: sans-serif;
+    
+  }
+
+  input{
+    border-radius: 3px;
+    width: 200px;
+    height: 20px;
+  }
+
+  .details{
+    margin-left: 76px;
+  }
+  h1{
+    margin-left: -35px;
+  }
+  .button{
+    margin-left: 80px;
+    background-color: blue; /* Set the initial color of the button */
+  cursor: pointer;
+}
+.button :hover{
+    background-color: green;
+}
+
+@media screen  and (max-width: 400px){
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .from{
+        /* padding: 15px 10px; */
+        display: none;
+
+    }
+    
+}

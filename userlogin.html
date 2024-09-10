@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <title>LoginPage</title>
+    <link rel="stylesheet" href="userlogin.css">
+   
+</head>
+<body>
+  <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+  <div class="main">
+    <div class="main1">
+
+      <form action="login-form" id="login-form">
+        <div class="logindetails">
+        <h1 class="heading">DESIGNER LOGIN</h1>
+      
+      </br>
+        <label for="email">Email</label>
+      </br>
+    </br>
+        <input type="email"  placeholder="Email" id="email" required>
+      </br>
+    </br>
+        <label for="password">Password</label>
+      </br>
+    </br>
+        <input type="password" id="password" placeholder="password" required> 
+      </br>
+    </br>
+        <button type="submit" class="button"> Login</button>
+  </br>
+  <p class="para">Don't have an account? <a href="usersignup.html">Signup Here</a></p>
+</div>
+      </form>
+    </div>
+  </div>
+
+
+    <script>
+  document.getElementById('login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+   
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:8080/designerlogin', '/designerlogin', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function() {
+  if (xhr.status === 200) {
+    var response = JSON.stringify(xhr.responseText);
+    console.log(response);
+    var message = response.message;
+
+    console.log('login successfull');
+    alert("login successfully")
+  
+
+
+    sessionStorage.setItem("data", JSON.stringify(email));
+    // sessionStorage.setItem("data", JSON.stringify(mobilenumber));
+    // sessionStorage.setItem("data", JSON.stringify(country));
+
+    window.location.href = 'userwelcome.html';
+    
+  } else {
+    alert("login failed")
+    console.log("Login failed");
+  }
+};
+xhr.onerror = function () {
+      // Network error
+      console.error('Network error');
+    };
+
+    xhr.send(JSON.stringify({ email, password }));
+  });
+
+  
+</script>
+</body>
+</html>
